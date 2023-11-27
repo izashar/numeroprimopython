@@ -1,0 +1,31 @@
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def prime_numbers_in_range(start, end):
+    primes = []
+    for num in range(start, end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+# Obter intervalo de valores do usuário
+start_value = int(input("Digite o valor inicial do intervalo: "))
+end_value = int(input("Digite o valor final do intervalo: "))
+
+# Verificar se o intervalo é válido
+if start_value >= end_value:
+    print("Por favor, digite um intervalo válido.")
+else:
+    # Encontrar números primos no intervalo
+    result = prime_numbers_in_range(start_value, end_value)
+
+    # Exibir os números primos encontrados
+    if result:
+        print(f"Números primos no intervalo de {start_value} a {end_value}: {result}")
+    else:
+        print(f"Não há números primos no intervalo de {start_value} a {end_value}.")
